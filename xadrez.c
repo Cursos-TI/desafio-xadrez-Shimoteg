@@ -1,6 +1,38 @@
 #include <stdio.h>
 // movivmentacao das pecas de xadrez utilizando for, while e do-while
 
+// Recursividade movimento da torre
+void moverTorre(int casas)
+{
+    if (casas > 0)
+    {
+        printf("Direita\n");
+        moverTorre(casas - 1);
+    }
+}
+
+// Recursividade movimento do bispo
+void moverBispo(int casas)
+{
+    if (casas > 0)
+    {
+        printf("Cima\n");
+        printf("Direita\n");
+        moverBispo(casas - 1);
+    }
+}
+
+// Recursividade do cavalo
+void moverCavalo(int casas)
+{
+    printf("Cavalo escolhido\n");
+    for (int i = 0; i < 2; i++)
+    {
+        printf("Cima\n"); // direcao do movimento}
+    }
+    printf("Direita\n");
+}
+
 int main()
 {
     char sentido;
@@ -17,20 +49,15 @@ int main()
     if (peca == 1)
     {
         printf("Torre escolhida\n");
-        for (int i = 0; i < 5; i++)
-        {
-            printf("Direita\n"); // direcao do movimento
-        }
+        moverTorre(5);
+        return 0;
     }
     // bispo
     if (peca == 2)
     {
         printf("Bispo escolhido\n");
-        for (int i = 0; i < 5; i++)
-        {
-            printf("Cima\n"); // direcao do movimento
-            printf("Direita\n");
-        }
+        moverBispo(5);
+        return 0;
     }
     // rainha
     if (peca == 3)
@@ -72,14 +99,9 @@ int main()
         }
     }
 
-    if (peca == 4) //movimentacao do cavalo
+    if (peca == 4)
 
     {
-        printf("Cavalo escolhido\n");//faz 2x antes 
-        for (int i = 0; i < 2; i++)
-        {
-            printf("Cima\n"); // direcao do movimento}
-        }
-        printf("Direita\n");
+        moverCavalo(0);
     }
 }
